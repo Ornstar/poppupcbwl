@@ -22,6 +22,7 @@
   font-family:Georgia,"Times New Roman",serif;
 }
 
+/* popup utama */
 #popup-resmi-box{
   position:relative;
   width:100%;
@@ -40,9 +41,46 @@
     0 0 80px rgba(10,40,255,.18),
     0 0 0 1px rgba(255,255,255,.05) inset;
   isolation:isolate;
+
+  /* animasi muncul + gerak halus */
+  animation:
+    popupMasuk .7s cubic-bezier(.2,.85,.2,1),
+    popupFloat 4.6s ease-in-out .75s infinite;
 }
 
-/* EFEK BARU: aurora glow halus */
+/* muncul dengan efek putar / kejut */
+@keyframes popupMasuk{
+  0%{
+    opacity:0;
+    transform:perspective(800px) rotateZ(-6deg) scale(.82) translateY(22px);
+    filter:blur(2px);
+  }
+  45%{
+    opacity:1;
+    transform:perspective(800px) rotateZ(2deg) scale(1.03) translateY(-4px);
+    filter:blur(0);
+  }
+  70%{
+    transform:perspective(800px) rotateZ(-1deg) scale(.99) translateY(2px);
+  }
+  100%{
+    opacity:1;
+    transform:perspective(800px) rotateZ(0deg) scale(1) translateY(0);
+    filter:blur(0);
+  }
+}
+
+/* naik turun pelan */
+@keyframes popupFloat{
+  0%,100%{
+    transform:translateY(0);
+  }
+  50%{
+    transform:translateY(-7px);
+  }
+}
+
+/* glow halus premium */
 #popup-resmi-box::before{
   content:"";
   position:absolute;
@@ -55,33 +93,18 @@
     radial-gradient(35% 28% at 85% 18%, rgba(255,255,255,.08), transparent 60%),
     radial-gradient(38% 30% at 78% 80%, rgba(255,215,0,.08), transparent 60%),
     radial-gradient(42% 35% at 25% 85%, rgba(120,170,255,.10), transparent 60%);
-  filter:blur(12px);
-  animation:auroraMove 9s ease-in-out infinite alternate;
+  filter:blur(10px);
+  animation:auroraMove 8s ease-in-out infinite alternate;
 }
 
-/* EFEK BARU: shine lembut */
+/* efek garis panjang DIHILANGKAN */
 #popup-resmi-box::after{
-  content:"";
-  position:absolute;
-  top:-20%;
-  left:-35%;
-  width:22%;
-  height:140%;
-  pointer-events:none;
-  z-index:1;
-  background:linear-gradient(to right, transparent, rgba(255,255,255,.10), transparent);
-  transform:rotate(18deg);
-  animation:softShine 8s linear infinite;
+  content:none;
 }
 
 @keyframes auroraMove{
-  0%{transform:translate(-6px,-4px) scale(1);}
-  100%{transform:translate(6px,5px) scale(1.04);}
-}
-
-@keyframes softShine{
-  0%{left:-35%;}
-  100%{left:118%;}
+  0%{transform:translate(-4px,-3px) scale(1);}
+  100%{transform:translate(4px,4px) scale(1.03);}
 }
 
 #popup-resmi-box > *{
@@ -321,6 +344,15 @@
     width:36px;
     height:36px;
     font-size:20px;
+  }
+
+  @keyframes popupFloat{
+    0%,100%{
+      transform:translateY(0);
+    }
+    50%{
+      transform:translateY(-5px);
+    }
   }
 }
 `;

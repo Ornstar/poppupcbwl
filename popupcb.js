@@ -115,11 +115,11 @@ animation:borderShine 3.5s linear infinite;
 100%{opacity:.65;}
 }
 
-/* BANNER GAMBAR - SUDAH DIUBAH */
+/* BANNER GAMBAR DIPERBESAR */
 .popup-banner{
 width:calc(100% + 36px);
-margin:0 -18px 10px;
-height:145px;
+margin:0 -18px 14px;
+height:175px;
 overflow:hidden;
 border-radius:38px 4px 10px 4px;
 border-bottom:1px solid rgba(255,255,255,.2);
@@ -131,7 +131,9 @@ width:100%;
 height:100%;
 display:block;
 object-fit:cover;
-object-position:center;
+object-position:center top;
+transform:scale(1.08);
+transform-origin:center center;
 }
 
 /* CLOSE */
@@ -147,25 +149,9 @@ cursor:pointer;
 z-index:5;
 }
 
-/* HEADER */
-.header-logo{
-margin:10px auto 16px;
-max-width:370px;
-padding:10px 16px;
-border-radius:10px;
-border:1.5px solid #fff;
-background:linear-gradient(180deg,#36d5ff,#1689ff,#2359d8);
-}
-
-.text-logo{
-font-size:18px;
-font-weight:900;
-color:#ff4d00;
-text-transform:uppercase;
-text-shadow:0 0 3px #ffd700;
-}
-
+/* JARAK ATAS SETELAH HEADER LOGO DIHAPUS */
 .teks-putih-tebal{
+margin-top:8px;
 margin-bottom:14px;
 font-size:13px;
 font-weight:700;
@@ -254,9 +240,13 @@ padding:0 14px 18px;
 
 .popup-banner{
 width:calc(100% + 28px);
-margin:0 -14px 10px;
-height:120px;
+margin:0 -14px 12px;
+height:145px;
 border-radius:34px 4px 10px 4px;
+}
+
+.popup-banner img{
+transform:scale(1.06);
 }
 }
 `;
@@ -275,10 +265,6 @@ border-radius:34px 4px 10px 4px;
 
 <div class="popup-banner">
 <img src="http://plcl.me/images/tVqnj.jpeg" alt="Banner Popup">
-</div>
-
-<div class="header-logo">
-<div class="text-logo">CLICKBET88</div>
 </div>
 
 <span class="teks-putih-tebal">TEMUKAN LINK RESMI KAMI</span>

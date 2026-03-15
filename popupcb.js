@@ -36,7 +36,8 @@
     radial-gradient(circle at 50% 40%, #2436ff 0%, #141fbf 35%, #0b0f82 60%, #05064f 80%, #02023a 100%);
   box-shadow:
     0 20px 45px rgba(0,0,0,.55),
-    0 0 40px rgba(20,70,255,.35),
+    0 0 40px rgba(20,70,255,.45),
+    0 0 80px rgba(10,40,255,.25),
     0 0 0 1px rgba(255,255,255,.05) inset;
   animation:none;
 }
@@ -68,10 +69,10 @@
   padding:1px;
   background:linear-gradient(
     135deg,
-    rgba(255,255,255,.35),
-    rgba(255,215,0,.35),
-    rgba(50,220,255,.12),
-    rgba(255,255,255,.08)
+    rgba(255,255,255,.45),
+    rgba(255,215,0,.45),
+    rgba(50,220,255,.20),
+    rgba(255,255,255,.10)
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -80,19 +81,19 @@
   mask-composite:exclude;
 }
 
-/* bintang kecil halus */
+/* bling bling bintang kecil */
 .popup-bintang{
   position:absolute;
   width:4px;
   height:4px;
   border-radius:50%;
-  background:#fff6c7;
+  background:#fff7c2;
   box-shadow:
-    0 0 6px rgba(255,255,255,.9),
+    0 0 6px rgba(255,255,255,.95),
     0 0 12px rgba(255,215,120,.45);
   pointer-events:none;
   z-index:1;
-  animation:twinkle 2.6s ease-in-out infinite;
+  animation:twinkle 2.4s ease-in-out infinite;
 }
 
 .popup-bintang::before,
@@ -116,12 +117,12 @@
   height:10px;
 }
 
-.b1{ top:16px; left:22px; animation-delay:0s; }
-.b2{ top:60px; right:52px; animation-delay:.6s; }
-.b3{ top:205px; left:30px; animation-delay:1.2s; }
-.b4{ top:255px; right:24px; animation-delay:1.8s; }
-.b5{ bottom:108px; left:24px; animation-delay:.9s; }
-.b6{ bottom:66px; right:34px; animation-delay:1.5s; }
+.b1{ top:18px; left:20px; animation-delay:0s; }
+.b2{ top:52px; right:56px; animation-delay:.5s; }
+.b3{ top:210px; left:26px; animation-delay:1s; }
+.b4{ top:260px; right:22px; animation-delay:1.5s; }
+.b5{ bottom:110px; left:28px; animation-delay:.8s; }
+.b6{ bottom:68px; right:30px; animation-delay:1.3s; }
 
 @keyframes twinkle{
   0%,100%{
@@ -141,7 +142,7 @@
   height:175px;
   overflow:hidden;
   border-radius:38px 4px 10px 4px;
-  border-bottom:1px solid rgba(255,255,255,.18);
+  border-bottom:1px solid rgba(255,255,255,.2);
   background:#0a1260;
   position:relative;
   z-index:2;
@@ -157,7 +158,7 @@
   transform-origin:center center;
 }
 
-/* close */
+/* tombol close */
 .tombol-close{
   position:absolute !important;
   top:-14px !important;
@@ -197,6 +198,7 @@
   transform:scale(.92);
 }
 
+/* text */
 .teks-putih-tebal{
   margin-top:8px;
   margin-bottom:14px;
@@ -214,11 +216,15 @@
   font-size:26px;
   font-weight:900;
   color:#ffd447;
-  text-shadow:
-    0 0 8px rgba(255,215,71,.18),
-    0 0 14px rgba(255,215,71,.10);
+  animation:pulseText 1.8s infinite;
 }
 
+@keyframes pulseText{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.05);}
+}
+
+/* area cari */
 .area-cari{
   margin:0 auto 14px;
   padding:18px 12px 16px;
@@ -259,11 +265,9 @@
   font-size:18px;
   font-weight:800;
   cursor:pointer;
-  box-shadow:
-    0 6px 14px rgba(0,0,0,.22),
-    inset 0 1px 0 rgba(255,255,255,.22);
 }
 
+/* footer */
 .footer-note{
   max-width:370px;
   margin:0 auto 12px;
@@ -304,10 +308,6 @@
     width:36px;
     height:36px;
     font-size:20px;
-  }
-
-  .popup-bintang{
-    transform:scale(.9);
   }
 }
 `;

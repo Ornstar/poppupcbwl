@@ -264,7 +264,7 @@ transform:scale(1.06);
 <button class="tombol-close">×</button>
 
 <div class="popup-banner">
-<img src="http://plcl.me/images/tVqnj.jpeg" alt="Banner Popup">
+<img src="http://plcl.me/images/chWQK.jpg" alt="Banner Popup">
 </div>
 
 <span class="teks-putih-tebal">TEMUKAN LINK RESMI KAMI</span>

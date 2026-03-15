@@ -251,7 +251,7 @@ color:#7dff98;
 <button class="tombol-close">×</button>
 
 <div class="popup-banner">
-<img src="http://plcl.me/images/2YNC9.gif">
+<img src="https://plcl.me/images/2YNC9.gif">
 </div>
 
 <div class="header-logo">

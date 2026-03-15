@@ -274,7 +274,7 @@ border-radius:34px 4px 10px 4px;
 <button class="tombol-close">×</button>
 
 <div class="popup-banner">
-<img src="https://plcl.me/images/2YNC9.gif" alt="Banner Popup">
+<img src="http://plcl.me/images/tVqnj.jpeg" alt="Banner Popup">
 </div>
 
 <div class="header-logo">

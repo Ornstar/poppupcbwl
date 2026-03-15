@@ -30,50 +30,21 @@
   color:#fff;
   text-align:center;
   overflow:visible;
-  border-radius:40px 6px 40px 6px;  
+  border-radius:40px 6px 40px 6px;
   border:1.8px solid #d4a93a;
   background:
     radial-gradient(circle at 50% 40%, #2436ff 0%, #141fbf 35%, #0b0f82 60%, #05064f 80%, #02023a 100%);
   box-shadow:
     0 20px 45px rgba(0,0,0,.55),
-    0 0 40px rgba(20,70,255,.45),
-    0 0 80px rgba(10,40,255,.25),
+    0 0 40px rgba(20,70,255,.35),
     0 0 0 1px rgba(255,255,255,.05) inset;
   animation:none;
 }
 
-@keyframes floatBox{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-5px);}
-}
-
-/* efek background */
-#popup-resmi-box::before{
-content:"";
-position:absolute;
-inset:-8%;
-background:
-radial-gradient(circle at 20% 30%, rgba(0,255,255,.10), transparent 18%),
-radial-gradient(circle at 80% 20%, rgba(255,255,255,.06), transparent 16%),
-radial-gradient(circle at 70% 75%, rgba(255,215,0,.08), transparent 16%),
-radial-gradient(circle at 35% 80%, rgba(80,120,255,.10), transparent 18%);
-animation:bgGerak 12s ease-in-out infinite alternate;
-pointer-events:none;
-z-index:0;
-}
-
+/* efek besar dihilangkan */
+#popup-resmi-box::before,
 #popup-resmi-box::after{
-content:"";
-position:absolute;
-top:-15%;
-left:-45%;
-width:26%;
-height:130%;
-background:linear-gradient(to right, transparent, rgba(255,255,255,.10), transparent);
-transform:rotate(18deg);
-animation:kilauJalan 6.5s linear infinite;
-pointer-events:none;
-z-index:1;
+  content:none;
 }
 
 #popup-resmi-box > *{
@@ -97,33 +68,70 @@ z-index:1;
   padding:1px;
   background:linear-gradient(
     135deg,
-    rgba(255,255,255,.45),
-    rgba(255,215,0,.45),
-    rgba(50,220,255,.20),
-    rgba(255,255,255,.10)
+    rgba(255,255,255,.35),
+    rgba(255,215,0,.35),
+    rgba(50,220,255,.12),
+    rgba(255,255,255,.08)
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite:xor;
   mask-composite:exclude;
-  animation:borderShine 3.5s linear infinite;
 }
 
-@keyframes bgGerak{
-0%{transform:translate(-4px,-2px) scale(1);}
-100%{transform:translate(4px,3px) scale(1.02);}
+/* bintang kecil halus */
+.popup-bintang{
+  position:absolute;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#fff6c7;
+  box-shadow:
+    0 0 6px rgba(255,255,255,.9),
+    0 0 12px rgba(255,215,120,.45);
+  pointer-events:none;
+  z-index:1;
+  animation:twinkle 2.6s ease-in-out infinite;
 }
 
-@keyframes kilauJalan{
-0%{left:-45%;}
-100%{left:120%;}
+.popup-bintang::before,
+.popup-bintang::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  background:rgba(255,245,200,.9);
+  border-radius:999px;
 }
 
-@keyframes borderShine{
-  0%{opacity:.65;}
-  50%{opacity:1;}
-  100%{opacity:.65;}
+.popup-bintang::before{
+  width:10px;
+  height:1.5px;
+}
+
+.popup-bintang::after{
+  width:1.5px;
+  height:10px;
+}
+
+.b1{ top:16px; left:22px; animation-delay:0s; }
+.b2{ top:60px; right:52px; animation-delay:.6s; }
+.b3{ top:205px; left:30px; animation-delay:1.2s; }
+.b4{ top:255px; right:24px; animation-delay:1.8s; }
+.b5{ bottom:108px; left:24px; animation-delay:.9s; }
+.b6{ bottom:66px; right:34px; animation-delay:1.5s; }
+
+@keyframes twinkle{
+  0%,100%{
+    opacity:.25;
+    transform:scale(.75);
+  }
+  50%{
+    opacity:1;
+    transform:scale(1.2);
+  }
 }
 
 /* banner */
@@ -133,7 +141,7 @@ z-index:1;
   height:175px;
   overflow:hidden;
   border-radius:38px 4px 10px 4px;
-  border-bottom:1px solid rgba(255,255,255,.2);
+  border-bottom:1px solid rgba(255,255,255,.18);
   background:#0a1260;
   position:relative;
   z-index:2;
@@ -149,7 +157,7 @@ z-index:1;
   transform-origin:center center;
 }
 
-/* tombol close - floating dan tidak ketimpa */
+/* close */
 .tombol-close{
   position:absolute !important;
   top:-14px !important;
@@ -189,7 +197,6 @@ z-index:1;
   transform:scale(.92);
 }
 
-/* text */
 .teks-putih-tebal{
   margin-top:8px;
   margin-bottom:14px;
@@ -207,15 +214,11 @@ z-index:1;
   font-size:26px;
   font-weight:900;
   color:#ffd447;
-  animation:pulseText 1.8s infinite;
+  text-shadow:
+    0 0 8px rgba(255,215,71,.18),
+    0 0 14px rgba(255,215,71,.10);
 }
 
-@keyframes pulseText{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-}
-
-/* area cari */
 .area-cari{
   margin:0 auto 14px;
   padding:18px 12px 16px;
@@ -256,9 +259,11 @@ z-index:1;
   font-size:18px;
   font-weight:800;
   cursor:pointer;
+  box-shadow:
+    0 6px 14px rgba(0,0,0,.22),
+    inset 0 1px 0 rgba(255,255,255,.22);
 }
 
-/* footer */
 .footer-note{
   max-width:370px;
   margin:0 auto 12px;
@@ -300,6 +305,10 @@ z-index:1;
     height:36px;
     font-size:20px;
   }
+
+  .popup-bintang{
+    transform:scale(.9);
+  }
 }
 `;
 
@@ -312,6 +321,13 @@ z-index:1;
 <div id="popup-resmi-box">
 
   <div class="popup-garis"></div>
+
+  <span class="popup-bintang b1"></span>
+  <span class="popup-bintang b2"></span>
+  <span class="popup-bintang b3"></span>
+  <span class="popup-bintang b4"></span>
+  <span class="popup-bintang b5"></span>
+  <span class="popup-bintang b6"></span>
 
   <button class="tombol-close" type="button" aria-label="Tutup popup">×</button>
 

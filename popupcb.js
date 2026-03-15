@@ -36,50 +36,52 @@
     radial-gradient(circle at 50% 40%, #2436ff 0%, #141fbf 35%, #0b0f82 60%, #05064f 80%, #02023a 100%);
   box-shadow:
     0 20px 45px rgba(0,0,0,.55),
-    0 0 40px rgba(20,70,255,.38),
-    0 0 80px rgba(10,40,255,.20),
+    0 0 40px rgba(20,70,255,.40),
+    0 0 80px rgba(10,40,255,.18),
     0 0 0 1px rgba(255,255,255,.05) inset;
   isolation:isolate;
 }
 
-/* efek glow lembut bergerak */
+/* EFEK BARU: aurora glow halus */
 #popup-resmi-box::before{
   content:"";
   position:absolute;
-  inset:-12%;
-  z-index:0;
+  inset:0;
+  border-radius:inherit;
   pointer-events:none;
+  z-index:0;
   background:
-    radial-gradient(circle at 20% 25%, rgba(0,255,255,.12), transparent 18%),
-    radial-gradient(circle at 78% 18%, rgba(255,255,255,.08), transparent 16%),
-    radial-gradient(circle at 72% 78%, rgba(255,215,0,.10), transparent 16%),
-    radial-gradient(circle at 32% 82%, rgba(120,170,255,.12), transparent 18%);
-  animation:glowMove 10s ease-in-out infinite alternate;
+    radial-gradient(40% 30% at 15% 20%, rgba(0,255,255,.10), transparent 60%),
+    radial-gradient(35% 28% at 85% 18%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(38% 30% at 78% 80%, rgba(255,215,0,.08), transparent 60%),
+    radial-gradient(42% 35% at 25% 85%, rgba(120,170,255,.10), transparent 60%);
+  filter:blur(12px);
+  animation:auroraMove 9s ease-in-out infinite alternate;
 }
 
-/* kilau jalan tipis */
+/* EFEK BARU: shine lembut */
 #popup-resmi-box::after{
   content:"";
   position:absolute;
-  top:-18%;
-  left:-42%;
-  width:24%;
-  height:135%;
-  z-index:1;
+  top:-20%;
+  left:-35%;
+  width:22%;
+  height:140%;
   pointer-events:none;
-  background:linear-gradient(to right, transparent, rgba(255,255,255,.12), transparent);
+  z-index:1;
+  background:linear-gradient(to right, transparent, rgba(255,255,255,.10), transparent);
   transform:rotate(18deg);
-  animation:shineMove 7s linear infinite;
+  animation:softShine 8s linear infinite;
 }
 
-@keyframes glowMove{
-  0%{transform:translate(-4px,-2px) scale(1);}
-  100%{transform:translate(5px,4px) scale(1.03);}
+@keyframes auroraMove{
+  0%{transform:translate(-6px,-4px) scale(1);}
+  100%{transform:translate(6px,5px) scale(1.04);}
 }
 
-@keyframes shineMove{
-  0%{left:-42%;}
-  100%{left:120%;}
+@keyframes softShine{
+  0%{left:-35%;}
+  100%{left:118%;}
 }
 
 #popup-resmi-box > *{
@@ -103,10 +105,10 @@
   padding:1px;
   background:linear-gradient(
     135deg,
-    rgba(255,255,255,.40),
-    rgba(255,215,0,.42),
-    rgba(50,220,255,.18),
-    rgba(255,255,255,.10)
+    rgba(255,255,255,.36),
+    rgba(255,215,0,.40),
+    rgba(50,220,255,.16),
+    rgba(255,255,255,.08)
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -119,39 +121,6 @@
 @keyframes borderGlow{
   0%,100%{opacity:.72;}
   50%{opacity:1;}
-}
-
-/* sparkle premium */
-.popup-spark{
-  position:absolute;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,244,190,.95) 45%, rgba(255,244,190,0) 100%);
-  box-shadow:
-    0 0 8px rgba(255,255,255,.75),
-    0 0 15px rgba(255,215,120,.28);
-  pointer-events:none;
-  z-index:1;
-  animation:sparkBlink 2.8s ease-in-out infinite;
-}
-
-.s1{ top:18px; left:22px; animation-delay:0s; }
-.s2{ top:50px; right:60px; animation-delay:.6s; }
-.s3{ top:218px; left:30px; animation-delay:1.2s; }
-.s4{ top:250px; right:24px; animation-delay:1.8s; }
-.s5{ bottom:112px; left:28px; animation-delay:.9s; }
-.s6{ bottom:72px; right:34px; animation-delay:1.4s; }
-
-@keyframes sparkBlink{
-  0%,100%{
-    opacity:.18;
-    transform:scale(.75);
-  }
-  50%{
-    opacity:1;
-    transform:scale(1.35);
-  }
 }
 
 /* banner */
@@ -177,7 +146,7 @@
   transform-origin:center center;
 }
 
-/* close */
+/* tombol close */
 .tombol-close{
   position:absolute !important;
   top:-14px !important;
@@ -365,13 +334,6 @@
 <div id="popup-resmi-box">
 
   <div class="popup-garis"></div>
-
-  <span class="popup-spark s1"></span>
-  <span class="popup-spark s2"></span>
-  <span class="popup-spark s3"></span>
-  <span class="popup-spark s4"></span>
-  <span class="popup-spark s5"></span>
-  <span class="popup-spark s6"></span>
 
   <button class="tombol-close" type="button" aria-label="Tutup popup">×</button>
 

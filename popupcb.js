@@ -115,19 +115,26 @@ animation:borderShine 3.5s linear infinite;
 100%{opacity:.65;}
 }
 
+/* BANNER GAMBAR - SUDAH DIUBAH */
 .popup-banner{
-width:100%;
-margin-bottom:10px;
+width:calc(100% + 36px);
+margin:0 -18px 10px;
+height:145px;
 overflow:hidden;
 border-radius:38px 4px 10px 4px;
 border-bottom:1px solid rgba(255,255,255,.2);
+background:#0a1260;
 }
 
 .popup-banner img{
 width:100%;
+height:100%;
 display:block;
+object-fit:cover;
+object-position:center;
 }
 
+/* CLOSE */
 .tombol-close{
 position:absolute;
 top:8px;
@@ -140,6 +147,7 @@ cursor:pointer;
 z-index:5;
 }
 
+/* HEADER */
 .header-logo{
 margin:10px auto 16px;
 max-width:370px;
@@ -236,6 +244,21 @@ text-align:left;
 font-size:11px;
 color:#7dff98;
 }
+
+/* MOBILE */
+@media (max-width:480px){
+#popup-resmi-box{
+max-width:100%;
+padding:0 14px 18px;
+}
+
+.popup-banner{
+width:calc(100% + 28px);
+margin:0 -14px 10px;
+height:120px;
+border-radius:34px 4px 10px 4px;
+}
+}
 `;
 
   document.head.appendChild(style);
@@ -251,7 +274,7 @@ color:#7dff98;
 <button class="tombol-close">×</button>
 
 <div class="popup-banner">
-<img src="https://plcl.me/images/2YNC9.gif">
+<img src="https://plcl.me/images/2YNC9.gif" alt="Banner Popup">
 </div>
 
 <div class="header-logo">
@@ -260,7 +283,7 @@ color:#7dff98;
 
 <span class="teks-putih-tebal">TEMUKAN LINK RESMI KAMI</span>
 
-<a href="https://click-lynk.com/CekYuk" class="link-utama" target="_blank">
+<a href="https://click-lynk.com/CekYuk" class="link-utama" target="_blank" rel="noopener noreferrer">
 <div class="gold-blink">✨ CEKYUK ✨</div>
 </a>
 

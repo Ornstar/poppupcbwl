@@ -28,16 +28,13 @@ text-align:center;
 overflow:hidden;
 border-radius:40px 6px 40px 6px;
 border:1.8px solid #d4a93a;
-
 background:
 radial-gradient(circle at 50% 40%, #2436ff 0%, #141fbf 35%, #0b0f82 60%, #05064f 80%, #02023a 100%);
-
 box-shadow:
 0 20px 45px rgba(0,0,0,.55),
 0 0 40px rgba(20,70,255,.45),
 0 0 80px rgba(10,40,255,.25),
 0 0 0 1px rgba(255,255,255,.05) inset;
-
 animation:floatBox 4.5s ease-in-out infinite;
 }
 
@@ -74,7 +71,10 @@ pointer-events:none;
 z-index:1;
 }
 
-#popup-resmi-box > *{position:relative;z-index:2;}
+#popup-resmi-box > *{
+position:relative;
+z-index:2;
+}
 
 .popup-garis{
 position:absolute;
@@ -115,7 +115,7 @@ animation:borderShine 3.5s linear infinite;
 100%{opacity:.65;}
 }
 
-/* BANNER GAMBAR DIPERBESAR */
+/* BANNER */
 .popup-banner{
 width:calc(100% + 36px);
 margin:0 -18px 14px;
@@ -136,20 +136,45 @@ transform:scale(1.08);
 transform-origin:center center;
 }
 
-/* CLOSE */
+/* CLOSE BARU - LEBIH JELAS */
 .tombol-close{
 position:absolute;
-top:8px;
-right:10px;
-border:none;
-background:transparent;
-color:#fff;
-font-size:34px;
+top:10px;
+right:12px;
+width:36px;
+height:36px;
+border-radius:50%;
+border:2px solid #ffffff;
+background:linear-gradient(180deg,#ff4d4d 0%, #d10000 100%);
+color:#ffffff;
+font-size:22px;
+font-weight:900;
+line-height:1;
+display:flex;
+align-items:center;
+justify-content:center;
 cursor:pointer;
-z-index:5;
+z-index:10;
+box-shadow:
+0 5px 12px rgba(0,0,0,.40),
+inset 0 1px 2px rgba(255,255,255,.30);
+outline:2px solid rgba(255,255,255,.20);
+transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
 }
 
-/* JARAK ATAS SETELAH HEADER LOGO DIHAPUS */
+.tombol-close:hover{
+transform:scale(1.08);
+background:linear-gradient(180deg,#ff6a6a 0%, #e10000 100%);
+box-shadow:
+0 7px 16px rgba(0,0,0,.45),
+inset 0 1px 2px rgba(255,255,255,.35);
+}
+
+.tombol-close:active{
+transform:scale(.94);
+}
+
+/* TEXT */
 .teks-putih-tebal{
 margin-top:8px;
 margin-bottom:14px;
@@ -248,6 +273,14 @@ border-radius:34px 4px 10px 4px;
 .popup-banner img{
 transform:scale(1.06);
 }
+
+.tombol-close{
+top:8px;
+right:10px;
+width:34px;
+height:34px;
+font-size:20px;
+}
 }
 `;
 
@@ -261,10 +294,10 @@ transform:scale(1.06);
 
 <div class="popup-garis"></div>
 
-<button class="tombol-close">×</button>
+<button class="tombol-close" type="button" aria-label="Tutup popup">×</button>
 
 <div class="popup-banner">
-<img src="http://plcl.me/images/qYPpN.jpeg" alt="Banner Popup">
+<img src="https://plcl.me/images/qYPpN.jpeg" alt="Banner Popup">
 </div>
 
 <span class="teks-putih-tebal">TEMUKAN LINK RESMI KAMI</span>
@@ -274,7 +307,6 @@ transform:scale(1.06);
 </a>
 
 <div class="area-cari">
-
 <p>Masukkan Nama Situs Dibawah Ini:</p>
 
 <div class="input-box">
@@ -283,10 +315,9 @@ CLICKBET88
 <span class="blue">«</span>
 </div>
 
-<button class="tombol-cari-baru">
+<button class="tombol-cari-baru" type="button">
 CARI 🔎
 </button>
-
 </div>
 
 <div class="footer-note">
@@ -311,5 +342,4 @@ CARI 🔎
   popup.querySelector(".tombol-cari-baru").onclick = () => {
     window.open("https://click-lynk.com/CekYuk", "_blank");
   };
-
 })();

@@ -30,7 +30,7 @@
   color:#fff;
   text-align:center;
   overflow:visible;
-  border-radius:40px 6px 40px 6px;
+  border-radius:40px 6px 40px 6px;  
   border:1.8px solid #d4a93a;
   background:
     radial-gradient(circle at 50% 40%, #2436ff 0%, #141fbf 35%, #0b0f82 60%, #05064f 80%, #02023a 100%);
@@ -39,7 +39,7 @@
     0 0 40px rgba(20,70,255,.45),
     0 0 80px rgba(10,40,255,.25),
     0 0 0 1px rgba(255,255,255,.05) inset;
-  animation:floatBox 4.5s ease-in-out infinite;
+  animation:none;
 }
 
 @keyframes floatBox{
@@ -49,31 +49,31 @@
 
 /* efek background */
 #popup-resmi-box::before{
-  content:"";
-  position:absolute;
-  inset:-30%;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(0,255,255,.14), transparent 20%),
-    radial-gradient(circle at 80% 20%, rgba(255,255,255,.09), transparent 18%),
-    radial-gradient(circle at 70% 75%, rgba(255,215,0,.10), transparent 18%),
-    radial-gradient(circle at 35% 80%, rgba(80,120,255,.14), transparent 20%);
-  animation:bgGerak 10s linear infinite alternate;
-  pointer-events:none;
-  z-index:0;
+content:"";
+position:absolute;
+inset:-8%;
+background:
+radial-gradient(circle at 20% 30%, rgba(0,255,255,.10), transparent 18%),
+radial-gradient(circle at 80% 20%, rgba(255,255,255,.06), transparent 16%),
+radial-gradient(circle at 70% 75%, rgba(255,215,0,.08), transparent 16%),
+radial-gradient(circle at 35% 80%, rgba(80,120,255,.10), transparent 18%);
+animation:bgGerak 12s ease-in-out infinite alternate;
+pointer-events:none;
+z-index:0;
 }
 
 #popup-resmi-box::after{
-  content:"";
-  position:absolute;
-  top:-25%;
-  left:-60%;
-  width:34%;
-  height:160%;
-  background:linear-gradient(to right, transparent, rgba(255,255,255,.16), transparent);
-  transform:rotate(18deg);
-  animation:kilauJalan 4.8s linear infinite;
-  pointer-events:none;
-  z-index:1;
+content:"";
+position:absolute;
+top:-15%;
+left:-45%;
+width:26%;
+height:130%;
+background:linear-gradient(to right, transparent, rgba(255,255,255,.10), transparent);
+transform:rotate(18deg);
+animation:kilauJalan 6.5s linear infinite;
+pointer-events:none;
+z-index:1;
 }
 
 #popup-resmi-box > *{
@@ -111,13 +111,13 @@
 }
 
 @keyframes bgGerak{
-  0%{transform:translate(-12px,-8px) scale(1);}
-  100%{transform:translate(12px,10px) scale(1.08);}
+0%{transform:translate(-4px,-2px) scale(1);}
+100%{transform:translate(4px,3px) scale(1.02);}
 }
 
 @keyframes kilauJalan{
-  0%{left:-60%;}
-  100%{left:140%;}
+0%{left:-45%;}
+100%{left:120%;}
 }
 
 @keyframes borderShine{

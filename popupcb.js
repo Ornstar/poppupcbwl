@@ -115,7 +115,6 @@ animation:borderShine 3.5s linear infinite;
 100%{opacity:.65;}
 }
 
-/* BANNER */
 .popup-banner{
 width:calc(100% + 36px);
 margin:0 -18px 14px;
@@ -136,13 +135,13 @@ transform:scale(1.08);
 transform-origin:center center;
 }
 
-/* CLOSE BARU - LEBIH JELAS */
+/* CLOSE DI KANAN ATAS */
 .tombol-close{
 position:absolute;
-top:10px;
-right:12px;
-width:36px;
-height:36px;
+top:8px;
+right:8px;
+width:38px;
+height:38px;
 border-radius:50%;
 border:2px solid #ffffff;
 background:linear-gradient(180deg,#ff4d4d 0%, #d10000 100%);
@@ -154,7 +153,7 @@ display:flex;
 align-items:center;
 justify-content:center;
 cursor:pointer;
-z-index:10;
+z-index:20;
 box-shadow:
 0 5px 12px rgba(0,0,0,.40),
 inset 0 1px 2px rgba(255,255,255,.30);
@@ -174,7 +173,6 @@ inset 0 1px 2px rgba(255,255,255,.35);
 transform:scale(.94);
 }
 
-/* TEXT */
 .teks-putih-tebal{
 margin-top:8px;
 margin-bottom:14px;
@@ -256,7 +254,6 @@ font-size:11px;
 color:#7dff98;
 }
 
-/* MOBILE */
 @media (max-width:480px){
 #popup-resmi-box{
 max-width:100%;
@@ -275,8 +272,8 @@ transform:scale(1.06);
 }
 
 .tombol-close{
-top:8px;
-right:10px;
+top:6px;
+right:6px;
 width:34px;
 height:34px;
 font-size:20px;

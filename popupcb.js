@@ -163,7 +163,8 @@
   width:100%;
   height:100%;
   display:block;
-  object-fit:cover;
+  object-fit:contain;
+  background:#0a1260;
   object-position:center top;
   transform:scale(1.08);
   transform-origin:center center;

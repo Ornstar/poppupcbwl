@@ -26,7 +26,7 @@
 #popup-resmi-box{
   position:relative;
   width:100%;
-  max-width:680px;
+  max-width:480px;
   padding:0 18px 20px;
   color:#fff;
   text-align:center;

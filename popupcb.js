@@ -26,7 +26,7 @@
 #popup-resmi-box{
   position:relative;
   width:100%;
-  max-width:750px;
+  max-width:650px;
   padding:0 18px 20px;
   color:#fff;
   text-align:center;
@@ -150,7 +150,7 @@
 .popup-banner{
   width:calc(100% + 36px);
   margin:0 -18px 14px;
-  height:320px;
+  height:300px;
   overflow:hidden;
   border-radius:38px 4px 10px 4px;
   border-bottom:1px solid rgba(255,255,255,.18);
@@ -322,7 +322,7 @@
 }
 
 /* mobile */
-@media (max-width:480px){
+@media (max-width:650px){
   #popup-resmi-box{
     max-width:100%;
     padding:0 14px 18px;

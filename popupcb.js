@@ -26,7 +26,7 @@
 #popup-resmi-box{
   position:relative;
   width:100%;
-  max-width:480px;
+  max-width:750px;
   padding:0 18px 20px;
   color:#fff;
   text-align:center;
@@ -150,7 +150,7 @@
 .popup-banner{
   width:calc(100% + 36px);
   margin:0 -18px 14px;
-  height:230px;
+  height:320px;
   overflow:hidden;
   border-radius:38px 4px 10px 4px;
   border-bottom:1px solid rgba(255,255,255,.18);
@@ -166,7 +166,7 @@
   object-fit:contain;
   background:#0a1260;
   object-position:center top;
-  transform:scale(1.08);
+  transform:scale(1);
   transform-origin:center center;
 }
 

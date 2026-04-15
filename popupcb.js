@@ -371,7 +371,7 @@
   <button class="tombol-close" type="button" aria-label="Tutup popup">×</button>
 
   <div class="popup-banner">
-    <img src="https://res.cloudinary.com/dizias6lk/image/upload/v1776218416/photo_2026-04-15_08-58-46_kygwjd.jpg" alt="Banner Popup">
+    <img src="https://res.cloudinary.com/dazguhisl/image/upload/v1776219256/clickbet88_800x500_hb1my6.jpg" alt="Banner Popup">
   </div>
 
   <span class="teks-putih-tebal">TEMUKAN LINK RESMI KAMI</span>

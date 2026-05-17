@@ -371,7 +371,7 @@
   <button class="tombol-close" type="button" aria-label="Tutup popup">×</button>
 
   <div class="popup-banner">
-    <img src="http://plcl.me/images/4xQzs.png" alt="Banner Popup">
+    <img src="http://plcl.me/images/asznr.jpg" alt="Banner Popup">
   </div>
 
   <span class="teks-putih-tebal">TEMUKAN LINK RESMI KAMI</span>

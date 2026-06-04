@@ -30,6 +30,7 @@
       background:rgba(0,0,0,.65);
       padding:20px;
       box-sizing:border-box;
+      font-family:Arial,sans-serif;
     }
 
     #popup-resmi-box{
@@ -37,84 +38,86 @@
       width:100%;
       max-width:760px;
       background:#161616;
-      border-radius:12px;
+      border-radius:10px;
       overflow:hidden;
       box-shadow:0 18px 45px rgba(0,0,0,.55);
+      text-align:center;
     }
 
-    .tombol-close{
+    .popup-close{
       position:absolute;
-      top:10px;
-      right:14px;
-      z-index:10;
+      top:8px;
+      right:13px;
+      z-index:5;
       color:#0b5cff;
-      font-size:24px;
+      font-size:22px;
+      line-height:22px;
       cursor:pointer;
-      font-family:Arial,sans-serif;
+      font-weight:400;
     }
 
     .popup-title{
       color:#fff;
       text-align:center;
-      font-size:25px;
+      font-size:23px;
       font-weight:900;
-      padding:24px 45px 16px;
-      font-family:Arial,sans-serif;
+      padding:22px 45px 12px;
+      letter-spacing:.3px;
     }
 
-    .popup-slider-box{
+    .popup-img-link{
+      display:block;
+      margin:0;
+      padding:0;
+    }
+
+    #popup-main-img{
       width:100%;
-      overflow:hidden;
-    }
-
-    .popup-slider{
-      display:flex;
-      width:300%;
-      transition:.4s ease;
-    }
-
-    .popup-slide{
-      width:33.3333%;
-      flex-shrink:0;
-    }
-
-    .popup-slide img{
-      width:100%;
+      height:auto;
       display:block;
       border:0;
+      margin:0;
+      padding:0;
+      filter:none !important;
+      transform:none !important;
+      image-rendering:auto;
     }
 
     .popup-nav{
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:12px;
-      padding:10px 0 16px;
+      gap:10px;
+      padding:10px 0 6px;
     }
 
     .popup-arrow{
-      width:28px;
-      height:28px;
+      width:24px;
+      height:24px;
       border-radius:50%;
       border:1px solid #b8892d;
       background:#111;
       color:#ffd36a;
-      font-size:18px;
+      font-size:17px;
       font-weight:900;
+      line-height:20px;
       cursor:pointer;
+      padding:0;
     }
 
     .popup-dots{
       display:flex;
-      gap:7px;
+      gap:6px;
+      align-items:center;
     }
 
     .popup-dot{
-      width:8px;
-      height:8px;
+      width:7px;
+      height:7px;
       border-radius:50%;
       background:#777;
       cursor:pointer;
+      display:block;
     }
 
     .popup-dot.active{
@@ -124,19 +127,20 @@
 
     .popup-okay{
       display:block;
-      margin:0 auto 14px;
-      padding:7px 25px;
+      margin:6px auto 10px;
+      padding:7px 22px;
       border-radius:4px;
       background:#173dbe;
       border:1px solid #ffc400;
       color:#fff;
       cursor:pointer;
       font-weight:700;
+      font-size:12px;
     }
 
     @media(max-width:480px){
       #popup-resmi-wrap{
-        padding:18px;
+        padding:14px;
       }
 
       #popup-resmi-box{
@@ -144,8 +148,12 @@
       }
 
       .popup-title{
-        font-size:22px;
-        padding:24px 35px 14px;
+        font-size:18px;
+        padding:20px 35px 10px;
+      }
+
+      .popup-okay{
+        margin-bottom:9px;
       }
     }
   `;
@@ -156,55 +164,55 @@
 
   popup.innerHTML = `
     <div id="popup-resmi-box">
-      <div class="tombol-close">×</div>
+      <div class="popup-close">×</div>
 
       <div class="popup-title">SPECIAL BIG EVENT WORLD CUP 2026</div>
 
-      <div class="popup-slider-box">
-        <div class="popup-slider">
-          ${banners.map(item => `
-            <div class="popup-slide">
-              <a href="${item.link}" target="_blank">
-                <img src="${item.img}">
-              </a>
-            </div>
-          `).join("")}
-        </div>
-      </div>
+      <a class="popup-img-link" href="${banners[0].link}" target="_blank">
+        <img id="popup-main-img" src="${banners[0].img}" alt="World Cup Event">
+      </a>
 
       <div class="popup-nav">
-        <button class="popup-arrow popup-prev">‹</button>
+        <button class="popup-arrow popup-prev" type="button">‹</button>
+
         <div class="popup-dots">
           <span class="popup-dot active"></span>
           <span class="popup-dot"></span>
           <span class="popup-dot"></span>
         </div>
-        <button class="popup-arrow popup-next">›</button>
+
+        <button class="popup-arrow popup-next" type="button">›</button>
       </div>
 
-      <button class="popup-okay">Okay</button>
+      <button class="popup-okay" type="button">Okay</button>
     </div>
   `;
 
   document.body.appendChild(popup);
 
   let index = 0;
-  const slider = popup.querySelector(".popup-slider");
+
+  const img = popup.querySelector("#popup-main-img");
+  const link = popup.querySelector(".popup-img-link");
   const dots = popup.querySelectorAll(".popup-dot");
 
-  function showSlide(i){
+  function showBanner(i){
     index = (i + banners.length) % banners.length;
-    slider.style.transform = `translateX(-${index * 33.3333}%)`;
-    dots.forEach((dot, n) => dot.classList.toggle("active", n === index));
+    img.src = banners[index].img;
+    link.href = banners[index].link;
+
+    dots.forEach((dot, n) => {
+      dot.classList.toggle("active", n === index);
+    });
   }
 
-  popup.querySelector(".popup-next").onclick = () => showSlide(index + 1);
-  popup.querySelector(".popup-prev").onclick = () => showSlide(index - 1);
+  popup.querySelector(".popup-next").onclick = () => showBanner(index + 1);
+  popup.querySelector(".popup-prev").onclick = () => showBanner(index - 1);
 
   dots.forEach((dot, i) => {
-    dot.onclick = () => showSlide(i);
+    dot.onclick = () => showBanner(i);
   });
 
-  popup.querySelector(".tombol-close").onclick = () => popup.remove();
+  popup.querySelector(".popup-close").onclick = () => popup.remove();
   popup.querySelector(".popup-okay").onclick = () => popup.remove();
 })();

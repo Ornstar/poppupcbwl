@@ -27,8 +27,8 @@
       display:flex;
       align-items:center;
       justify-content:center;
-      background:rgba(0,0,0,.65);
-      padding:20px;
+      background:rgba(0,0,0,.68);
+      padding:18px;
       box-sizing:border-box;
       font-family:Arial,sans-serif;
     }
@@ -37,38 +37,30 @@
       position:relative;
       width:100%;
       max-width:760px;
-      background:#161616;
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 18px 45px rgba(0,0,0,.55);
+      background:transparent !important;
+      border-radius:0;
+      overflow:visible;
+      box-shadow:none;
       text-align:center;
     }
 
     .popup-close{
       position:absolute;
-      top:8px;
-      right:13px;
-      z-index:5;
+      top:-28px;
+      right:0;
+      z-index:10;
       color:#0b5cff;
-      font-size:22px;
-      line-height:22px;
+      font-size:24px;
       cursor:pointer;
-      font-weight:400;
-    }
-
-    .popup-title{
-      color:#fff;
-      text-align:center;
-      font-size:23px;
-      font-weight:900;
-      padding:22px 45px 12px;
-      letter-spacing:.3px;
+      font-weight:700;
+      line-height:1;
     }
 
     .popup-img-link{
       display:block;
       margin:0;
       padding:0;
+      background:transparent;
     }
 
     #popup-main-img{
@@ -88,17 +80,18 @@
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding:10px 0 6px;
+      padding:8px 0 8px;
+      background:transparent !important;
     }
 
     .popup-arrow{
-      width:24px;
-      height:24px;
+      width:25px;
+      height:25px;
       border-radius:50%;
       border:1px solid #b8892d;
       background:#111;
       color:#ffd36a;
-      font-size:17px;
+      font-size:18px;
       font-weight:900;
       line-height:20px;
       cursor:pointer;
@@ -125,17 +118,33 @@
       box-shadow:0 0 8px #ffd36a;
     }
 
-    .popup-okay{
-      display:block;
-      margin:6px auto 10px;
-      padding:7px 22px;
-      border-radius:4px;
-      background:#173dbe;
-      border:1px solid #ffc400;
+    .popup-contact{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      padding:0;
+      margin:0;
+    }
+
+    .popup-contact a{
+      min-width:118px;
+      padding:9px 12px;
+      border-radius:999px;
       color:#fff;
-      cursor:pointer;
-      font-weight:700;
+      text-decoration:none;
       font-size:12px;
+      font-weight:900;
+      box-shadow:0 0 12px rgba(0,0,0,.35);
+    }
+
+    .popup-wa{
+      background:linear-gradient(135deg,#25d366,#087b37);
+      border:1px solid #7dffb0;
+    }
+
+    .popup-tele{
+      background:linear-gradient(135deg,#2aabee,#12669b);
+      border:1px solid #8edcff;
     }
 
     @media(max-width:480px){
@@ -147,13 +156,15 @@
         max-width:100%;
       }
 
-      .popup-title{
-        font-size:18px;
-        padding:20px 35px 10px;
+      .popup-close{
+        top:-26px;
+        right:0;
       }
 
-      .popup-okay{
-        margin-bottom:9px;
+      .popup-contact a{
+        min-width:105px;
+        font-size:11px;
+        padding:8px 10px;
       }
     }
   `;
@@ -165,8 +176,6 @@
   popup.innerHTML = `
     <div id="popup-resmi-box">
       <div class="popup-close">×</div>
-
-      <div class="popup-title">SPECIAL BIG EVENT WORLD CUP 2026</div>
 
       <a class="popup-img-link" href="${banners[0].link}" target="_blank">
         <img id="popup-main-img" src="${banners[0].img}" alt="World Cup Event">
@@ -184,7 +193,10 @@
         <button class="popup-arrow popup-next" type="button">›</button>
       </div>
 
-      <button class="popup-okay" type="button">Okay</button>
+      <div class="popup-contact">
+        <a class="popup-wa" href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank">WHATSAPP</a>
+        <a class="popup-tele" href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank">TELEGRAM</a>
+      </div>
     </div>
   `;
 
@@ -214,5 +226,4 @@
   });
 
   popup.querySelector(".popup-close").onclick = () => popup.remove();
-  popup.querySelector(".popup-okay").onclick = () => popup.remove();
 })();

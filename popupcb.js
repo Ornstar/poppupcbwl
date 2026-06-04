@@ -3,417 +3,208 @@
 
   if (document.getElementById("popup-resmi-wrap")) return;
 
+  const banners = [
+    {
+      img: "http://plcl.me/images/WAwam.jpg",
+      link: "https://click-lynk.com/JADWAL-BOLA"
+    },
+    {
+      img: "http://plcl.me/images/YrdPa.jpg",
+      link: "https://click-lynk.com/CBEVNT2-FIFAWORLDCUP"
+    },
+    {
+      img: "http://plcl.me/images/FDg3h.jpg",
+      link: "https://click-lynk.com/CBEVNT3-PENALTY"
+    }
+  ];
+
   const style = document.createElement("style");
   style.textContent = `
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-#popup-resmi-wrap{
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:99999999;
-  padding:20px;
-  font-family:Georgia,"Times New Roman",serif;
-}
-
-/* popup utama */
-#popup-resmi-box{
-  position:relative;
-  width:100%;
-  max-width:480px;
-  padding:0 18px 20px;
-  color:#fff;
-  text-align:center;
-  overflow:visible;
-  border-radius:40px 6px 40px 6px;
-  border:1.8px solid #d4a93a;
-  background:
-    radial-gradient(circle at 50% 40%, #2436ff 0%, #141fbf 35%, #0b0f82 60%, #05064f 80%, #02023a 100%);
-  box-shadow:
-    0 20px 45px rgba(0,0,0,.55),
-    0 0 40px rgba(20,70,255,.40),
-    0 0 80px rgba(10,40,255,.18),
-    0 0 0 1px rgba(255,255,255,.05) inset;
-  isolation:isolate;
-
-  /* animasi muncul + gerak halus */
-  animation:
-    popupMasuk .7s cubic-bezier(.2,.85,.2,1),
-    popupFloat 4.6s ease-in-out .75s infinite;
-}
-
-/* muncul dengan efek putar / kejut */
-@keyframes popupMasuk{
-  0%{
-    opacity:0;
-    transform:perspective(800px) rotateZ(-6deg) scale(.82) translateY(22px);
-    filter:blur(2px);
-  }
-  45%{
-    opacity:1;
-    transform:perspective(800px) rotateZ(2deg) scale(1.03) translateY(-4px);
-    filter:blur(0);
-  }
-  70%{
-    transform:perspective(800px) rotateZ(-1deg) scale(.99) translateY(2px);
-  }
-  100%{
-    opacity:1;
-    transform:perspective(800px) rotateZ(0deg) scale(1) translateY(0);
-    filter:blur(0);
-  }
-}
-
-/* naik turun pelan */
-@keyframes popupFloat{
-  0%,100%{
-    transform:translateY(0);
-  }
-  50%{
-    transform:translateY(-7px);
-  }
-}
-
-/* glow halus premium */
-#popup-resmi-box::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:inherit;
-  pointer-events:none;
-  z-index:0;
-  background:
-    radial-gradient(40% 30% at 15% 20%, rgba(0,255,255,.10), transparent 60%),
-    radial-gradient(35% 28% at 85% 18%, rgba(255,255,255,.08), transparent 60%),
-    radial-gradient(38% 30% at 78% 80%, rgba(255,215,0,.08), transparent 60%),
-    radial-gradient(42% 35% at 25% 85%, rgba(120,170,255,.10), transparent 60%);
-  filter:blur(10px);
-  animation:auroraMove 8s ease-in-out infinite alternate;
-}
-
-/* efek garis panjang DIHILANGKAN */
-#popup-resmi-box::after{
-  content:none;
-}
-
-@keyframes auroraMove{
-  0%{transform:translate(-4px,-3px) scale(1);}
-  100%{transform:translate(4px,4px) scale(1.03);}
-}
-
-#popup-resmi-box > *{
-  position:relative;
-  z-index:2;
-}
-
-.popup-garis{
-  position:absolute;
-  inset:0;
-  border-radius:40px 6px 40px 6px;
-  pointer-events:none;
-  z-index:3;
-}
-
-.popup-garis::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:40px 6px 40px 6px;
-  padding:1px;
-  background:linear-gradient(
-    135deg,
-    rgba(255,255,255,.36),
-    rgba(255,215,0,.40),
-    rgba(50,220,255,.16),
-    rgba(255,255,255,.08)
-  );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  animation:borderGlow 3.6s ease-in-out infinite;
-}
-
-@keyframes borderGlow{
-  0%,100%{opacity:.72;}
-  50%{opacity:1;}
-}
-
-/* banner */
-.popup-banner{
-  width:calc(100% + 36px);
-  margin:0 -18px 14px;
-  height:230px;
-  overflow:hidden;
-  border-radius:38px 4px 10px 4px;
-  border-bottom:1px solid rgba(255,255,255,.18);
-  background:#0a1260;
-  position:relative;
-  z-index:2;
-}
-
-.popup-banner img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:contain;
-  background:#0a1260;
-  object-position:center top;
-  transform:scale(1.08);
-  transform-origin:center center;
-}
-
-/* tombol close */
-.tombol-close{
-  position:absolute !important;
-  top:-14px !important;
-  right:-14px !important;
-  left:auto !important;
-  bottom:auto !important;
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  border:3px solid #ffffff;
-  background:linear-gradient(180deg,#ff4d4d 0%, #b30000 100%);
-  color:#ffffff;
-  font-size:24px;
-  font-weight:900;
-  line-height:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  z-index:999999 !important;
-  box-shadow:
-    0 8px 18px rgba(0,0,0,.55),
-    inset 0 2px 4px rgba(255,255,255,.35);
-  outline:3px solid rgba(255,255,255,.25);
-  transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
-}
-
-.tombol-close:hover{
-  transform:scale(1.1);
-  background:linear-gradient(180deg,#ff6a6a 0%, #d40000 100%);
-  box-shadow:
-    0 10px 20px rgba(0,0,0,.6),
-    inset 0 2px 4px rgba(255,255,255,.4);
-}
-
-.tombol-close:active{
-  transform:scale(.92);
-}
-
-/* text */
-.teks-putih-tebal{
-  margin-top:8px;
-  margin-bottom:14px;
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.2px;
-}
-
-.link-utama{
-  text-decoration:none;
-  display:inline-block;
-  margin-bottom:16px;
-}
-
-.gold-blink{
-  font-size:26px;
-  font-weight:900;
-  color:#ffd447;
-  text-shadow:
-    0 0 10px rgba(255,215,71,.18),
-    0 0 18px rgba(255,215,71,.10);
-  animation:pulseText 1.8s ease-in-out infinite;
-}
-
-@keyframes pulseText{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.05);}
-}
-
-/* area cari */
-.area-cari{
-  margin:0 auto 14px;
-  padding:18px 12px 16px;
-  max-width:370px;
-  border-radius:14px;
-  border:1.5px solid #d8ab38;
-  background:rgba(0,0,0,.25);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.05),
-    0 8px 20px rgba(0,0,0,.12);
-}
-
-.area-cari p{
-  margin-bottom:10px;
-  font-size:12px;
-  font-weight:700;
-}
-
-.input-box{
-  max-width:258px;
-  margin:auto;
-  padding:9px 12px;
-  border-radius:5px;
-  background:#f1f1f1;
-  color:#24325e;
-  font-size:15px;
-  font-weight:800;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.85),
-    0 4px 10px rgba(0,0,0,.10);
-}
-
-.blue{
-  color:#2d64d4;
-}
-
-.tombol-cari-baru{
-  margin-top:12px;
-  padding:8px 26px;
-  border-radius:999px;
-  border:1.5px solid #fff;
-  background:linear-gradient(180deg,#33d6ff,#2899ff,#2f67dd);
-  color:#fff;
-  font-size:18px;
-  font-weight:800;
-  cursor:pointer;
-  box-shadow:
-    0 6px 14px rgba(0,0,0,.18),
-    inset 0 1px 0 rgba(255,255,255,.18);
-  transition:transform .2s ease, box-shadow .2s ease;
-}
-
-.tombol-cari-baru:hover{
-  transform:translateY(-1px);
-  box-shadow:
-    0 8px 16px rgba(0,0,0,.22),
-    inset 0 1px 0 rgba(255,255,255,.22);
-}
-
-.tombol-cari-baru:active{
-  transform:translateY(1px);
-}
-
-/* footer */
-.footer-note{
-  max-width:370px;
-  margin:0 auto 12px;
-  font-size:11px;
-  line-height:1.7;
-  text-align:left;
-}
-
-.badge-ijau{
-  max-width:370px;
-  margin:auto;
-  text-align:left;
-  font-size:11px;
-  color:#7dff98;
-}
-
-/* mobile */
-@media (max-width:480px){
-  #popup-resmi-box{
-    max-width:100%;
-    padding:0 14px 18px;
-  }
-
-  .popup-banner{
-    width:calc(100% + 28px);
-    margin:0 -14px 12px;
-    height:145px;
-    border-radius:34px 4px 10px 4px;
-  }
-
-  .popup-banner img{
-    transform:scale(1.06);
-  }
-
-  .tombol-close{
-    top:-12px !important;
-    right:-12px !important;
-    width:36px;
-    height:36px;
-    font-size:20px;
-  }
-
-  @keyframes popupFloat{
-    0%,100%{
-      transform:translateY(0);
+    #popup-resmi-wrap{
+      position:fixed;
+      inset:0;
+      z-index:99999999;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,.65);
+      padding:20px;
+      box-sizing:border-box;
     }
-    50%{
-      transform:translateY(-5px);
-    }
-  }
-}
-`;
 
+    #popup-resmi-box{
+      position:relative;
+      width:100%;
+      max-width:760px;
+      background:#161616;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 18px 45px rgba(0,0,0,.55);
+    }
+
+    .tombol-close{
+      position:absolute;
+      top:10px;
+      right:14px;
+      z-index:10;
+      color:#0b5cff;
+      font-size:24px;
+      cursor:pointer;
+      font-family:Arial,sans-serif;
+    }
+
+    .popup-title{
+      color:#fff;
+      text-align:center;
+      font-size:25px;
+      font-weight:900;
+      padding:24px 45px 16px;
+      font-family:Arial,sans-serif;
+    }
+
+    .popup-slider-box{
+      width:100%;
+      overflow:hidden;
+    }
+
+    .popup-slider{
+      display:flex;
+      width:300%;
+      transition:.4s ease;
+    }
+
+    .popup-slide{
+      width:33.3333%;
+      flex-shrink:0;
+    }
+
+    .popup-slide img{
+      width:100%;
+      display:block;
+      border:0;
+    }
+
+    .popup-nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      padding:10px 0 16px;
+    }
+
+    .popup-arrow{
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      border:1px solid #b8892d;
+      background:#111;
+      color:#ffd36a;
+      font-size:18px;
+      font-weight:900;
+      cursor:pointer;
+    }
+
+    .popup-dots{
+      display:flex;
+      gap:7px;
+    }
+
+    .popup-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:#777;
+      cursor:pointer;
+    }
+
+    .popup-dot.active{
+      background:#ffd36a;
+      box-shadow:0 0 8px #ffd36a;
+    }
+
+    .popup-okay{
+      display:block;
+      margin:0 auto 14px;
+      padding:7px 25px;
+      border-radius:4px;
+      background:#173dbe;
+      border:1px solid #ffc400;
+      color:#fff;
+      cursor:pointer;
+      font-weight:700;
+    }
+
+    @media(max-width:480px){
+      #popup-resmi-wrap{
+        padding:18px;
+      }
+
+      #popup-resmi-box{
+        max-width:100%;
+      }
+
+      .popup-title{
+        font-size:22px;
+        padding:24px 35px 14px;
+      }
+    }
+  `;
   document.head.appendChild(style);
 
   const popup = document.createElement("div");
   popup.id = "popup-resmi-wrap";
 
   popup.innerHTML = `
-<div id="popup-resmi-box">
+    <div id="popup-resmi-box">
+      <div class="tombol-close">×</div>
 
-  <div class="popup-garis"></div>
+      <div class="popup-title">SPECIAL BIG EVENT WORLD CUP 2026</div>
 
-  <button class="tombol-close" type="button" aria-label="Tutup popup">×</button>
+      <div class="popup-slider-box">
+        <div class="popup-slider">
+          ${banners.map(item => `
+            <div class="popup-slide">
+              <a href="${item.link}" target="_blank">
+                <img src="${item.img}">
+              </a>
+            </div>
+          `).join("")}
+        </div>
+      </div>
 
-  <div class="popup-banner">
-    <img src="http://plcl.me/images/JNFzZ.jpg" alt="Banner Popup">
-  </div>
+      <div class="popup-nav">
+        <button class="popup-arrow popup-prev">‹</button>
+        <div class="popup-dots">
+          <span class="popup-dot active"></span>
+          <span class="popup-dot"></span>
+          <span class="popup-dot"></span>
+        </div>
+        <button class="popup-arrow popup-next">›</button>
+      </div>
 
-  <span class="teks-putih-tebal">TEMUKAN LINK RESMI KAMI</span>
-
-  <a href="https://click-lynk.com/CekYuk" class="link-utama" target="_blank" rel="noopener noreferrer">
-    <div class="gold-blink">✨ CEKYUK ✨</div>
-  </a>
-
-  <div class="area-cari">
-    <p>Masukkan Nama Situs Dibawah Ini:</p>
-
-    <div class="input-box">
-      <span class="blue">»</span>
-      CLICKBET88
-      <span class="blue">«</span>
+      <button class="popup-okay">Okay</button>
     </div>
-
-    <button class="tombol-cari-baru" type="button">
-      CARI 🔎
-    </button>
-  </div>
-
-  <div class="footer-note">
-    1. Ketik nama situs pada kolom yang tersedia.<br>
-    2. Klik tombol di atas untuk mendapatkan link terbaru.
-  </div>
-
-  <div class="badge-ijau">
-    ✅ ANTI BLOKIR & INTERNET POSITIF<br>
-    ✅ SERVER AMAN & BEBAS NAWALA
-  </div>
-
-</div>
-`;
+  `;
 
   document.body.appendChild(popup);
 
-  popup.querySelector(".tombol-close").onclick = () => {
-    popup.remove();
-  };
+  let index = 0;
+  const slider = popup.querySelector(".popup-slider");
+  const dots = popup.querySelectorAll(".popup-dot");
 
-  popup.querySelector(".tombol-cari-baru").onclick = () => {
-    window.open("https://click-lynk.com/CekYuk", "_blank");
-  };
+  function showSlide(i){
+    index = (i + banners.length) % banners.length;
+    slider.style.transform = `translateX(-${index * 33.3333}%)`;
+    dots.forEach((dot, n) => dot.classList.toggle("active", n === index));
+  }
+
+  popup.querySelector(".popup-next").onclick = () => showSlide(index + 1);
+  popup.querySelector(".popup-prev").onclick = () => showSlide(index - 1);
+
+  dots.forEach((dot, i) => {
+    dot.onclick = () => showSlide(i);
+  });
+
+  popup.querySelector(".tombol-close").onclick = () => popup.remove();
+  popup.querySelector(".popup-okay").onclick = () => popup.remove();
 })();

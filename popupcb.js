@@ -29,6 +29,7 @@
       width:100%;
       max-width:720px;
       text-align:center;
+      background:transparent;
     }
 
     .popup-close{
@@ -39,6 +40,7 @@
       font-size:24px;
       cursor:pointer;
       font-weight:900;
+      line-height:1;
     }
 
     .popup-img-link,
@@ -75,7 +77,7 @@
     .popup-dots{
       display:flex;
       gap:6px;
-      background:rgba(0,0,0,.5);
+      background:rgba(0,0,0,.45);
       padding:5px 8px;
       border-radius:20px;
     }
@@ -96,30 +98,44 @@
       display:flex;
       justify-content:center;
       gap:10px;
-      margin-top:12px;
+      margin-top:10px;
     }
 
     .popup-contact a{
-      min-width:112px;
+      min-width:128px;
       padding:9px 12px;
       border-radius:20px;
       color:#fff;
       text-decoration:none;
       font-size:12px;
       font-weight:900;
+      transition:opacity .15s ease, transform .15s ease;
     }
 
-    .popup-wa{background:#18b957;}
-    .popup-tele{background:#219bd8;}
-
     .popup-contact a:hover{
-      opacity:.85;
+      opacity:.9;
+      transform:translateY(-1px);
+    }
+
+    .popup-help{
+      background:#168cff;
+    }
+
+    .popup-report{
+      background:#ef4444;
     }
 
     @media(max-width:480px){
-      #popup-resmi-box{max-width:100%;}
+      #popup-resmi-box{
+        max-width:100%;
+      }
+
+      .popup-contact{
+        gap:8px;
+      }
+
       .popup-contact a{
-        min-width:100px;
+        min-width:112px;
         font-size:11px;
         padding:8px 10px;
       }
@@ -140,17 +156,19 @@
 
       <div class="popup-nav">
         <button class="popup-arrow popup-prev" type="button">‹</button>
+
         <div class="popup-dots">
           <span class="popup-dot active"></span>
           <span class="popup-dot"></span>
           <span class="popup-dot"></span>
         </div>
+
         <button class="popup-arrow popup-next" type="button">›</button>
       </div>
 
       <div class="popup-contact">
-        <a class="popup-wa" href="https://click-lynk.com/WHATSAPP_OFFICIAL_CLICKBET88WL" target="_blank">WHATSAPP</a>
-        <a class="popup-tele" href="https://click-lynk.com/TELEGRAM_OFFCIAL_CLICKBET88WL" target="_blank">TELEGRAM</a>
+        <a class="popup-help" href="https://click-lynk.com/LIVECHAT_CLICKBET88WL" target="_blank">HUBUNGI KAMI</a>
+        <a class="popup-report" href="https://pengaduancb88.lovable.app/" target="_blank">FORM PENGADUAN</a>
       </div>
     </div>
   `;
@@ -174,6 +192,10 @@
     popup.querySelector(".popup-prev").onclick = () => showBanner(index - 1);
     dots.forEach((dot, i) => dot.onclick = () => showBanner(i));
     popup.querySelector(".popup-close").onclick = () => popup.remove();
+
+    setInterval(() => {
+      if (document.body.contains(popup)) showBanner(index + 1);
+    }, 5000);
   }
 
   if (document.readyState === "complete") {

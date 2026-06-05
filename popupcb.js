@@ -137,8 +137,16 @@
 
   document.body.appendChild(wrap);
 
-  document.getElementById("cb88Close").onclick = function () {
+  function closePopup() {
     wrap.remove();
+  }
+
+  document.getElementById("cb88Close").onclick = closePopup;
+
+  wrap.onclick = function (e) {
+    if (e.target === wrap) {
+      closePopup();
+    }
   };
 
 })();

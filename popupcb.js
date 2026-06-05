@@ -1,206 +1,148 @@
-(() => {
-  "use strict";
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-  if (document.getElementById("popup-resmi-wrap")) return;
+<title>CLICKBET88 Official</title>
 
-  const banners = [
-    { img: "http://plcl.me/images/WAwam.jpg", link: "https://click-lynk.com/JADWAL-BOLA" },
-    { img: "http://plcl.me/images/YrdPa.jpg", link: "https://click-lynk.com/CBEVNT2-FIFAWORLDCUP" },
-    { img: "http://plcl.me/images/FDg3h.jpg", link: "https://click-lynk.com/CBEVNT3-PENALTY" }
-  ];
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
 
-  const style = document.createElement("style");
-  style.textContent = `
-    #popup-resmi-wrap{
-      position:fixed;
-      inset:0;
-      z-index:99999999;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(0,0,0,.55);
-      padding:14px;
-      box-sizing:border-box;
-      font-family:Arial,sans-serif;
-    }
+body{
+background:#06153d;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:10px;
+}
 
-    #popup-resmi-box{
-      position:relative;
-      width:100%;
-      max-width:720px;
-      text-align:center;
-      background:transparent;
-    }
+.popup{
+position:relative;
+width:100%;
+max-width:320px;
+background:#0b1d4d;
+border-radius:14px;
+overflow:hidden;
+border:1px solid rgba(255,215,0,.25);
+box-shadow:
+0 8px 25px rgba(0,0,0,.45),
+0 0 12px rgba(255,215,0,.08);
+animation:fadeIn .3s ease;
+}
 
-    .popup-close{
-      position:absolute;
-      top:-26px;
-      right:0;
-      color:#168cff;
-      font-size:24px;
-      cursor:pointer;
-      font-weight:900;
-      line-height:1;
-    }
+.banner{
+width:100%;
+display:block;
+}
 
-    .popup-img-link,
-    #popup-main-img{
-      display:block;
-      width:100%;
-      border:0;
-      margin:0;
-      padding:0;
-    }
+.close-btn{
+position:absolute;
+top:8px;
+right:8px;
+width:32px;
+height:32px;
+border:none;
+border-radius:50%;
+background:rgba(0,0,0,.55);
+color:#fff;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+backdrop-filter:blur(4px);
+transition:.2s;
+z-index:10;
+}
 
-    .popup-nav{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:8px;
-      margin-top:-30px;
-      position:relative;
-      z-index:2;
-    }
+.close-btn:hover{
+background:#d40000;
+transform:scale(1.05);
+}
 
-    .popup-arrow{
-      width:24px;
-      height:24px;
-      border-radius:50%;
-      border:1px solid #ffd36a;
-      background:#111;
-      color:#ffd36a;
-      font-size:17px;
-      cursor:pointer;
-      padding:0;
-    }
+.content{
+padding:12px;
+text-align:center;
+}
 
-    .popup-dots{
-      display:flex;
-      gap:6px;
-      background:rgba(0,0,0,.45);
-      padding:5px 8px;
-      border-radius:20px;
-    }
+.claim-btn{
+display:inline-block;
+padding:10px 22px;
+border-radius:8px;
+text-decoration:none;
+font-size:13px;
+font-weight:800;
+color:#fff;
+background:linear-gradient(180deg,#ff2b2b,#b90000);
+box-shadow:0 0 12px rgba(255,0,0,.35);
+transition:.2s;
+}
 
-    .popup-dot{
-      width:7px;
-      height:7px;
-      border-radius:50%;
-      background:#777;
-      cursor:pointer;
-    }
+.claim-btn:hover{
+transform:translateY(-1px);
+filter:brightness(1.08);
+}
 
-    .popup-dot.active{
-      background:#ffd36a;
-    }
+.footer{
+padding:8px;
+text-align:center;
+font-size:10px;
+color:#b8c8ff;
+border-top:1px solid rgba(255,255,255,.08);
+}
 
-    .popup-contact{
-      display:flex;
-      justify-content:center;
-      gap:10px;
-      margin-top:10px;
-    }
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(.95);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+</style>
+</head>
 
-    .popup-contact a{
-      min-width:128px;
-      padding:9px 12px;
-      border-radius:20px;
-      color:#fff;
-      text-decoration:none;
-      font-size:12px;
-      font-weight:900;
-      transition:opacity .15s ease, transform .15s ease;
-    }
+<body>
 
-    .popup-contact a:hover{
-      opacity:.9;
-      transform:translateY(-1px);
-    }
+<div class="popup" id="promoPopup">
 
-    .popup-help{
-      background:#168cff;
-    }
+<button class="close-btn" onclick="closePopup()">✕</button>
 
-    .popup-report{
-      background:#ef4444;
-    }
+<img
+src="http://plcl.me/images/MjhjA.jpeg"
+alt="CLICKBET88"
+class="banner"
+>
 
-    @media(max-width:480px){
-      #popup-resmi-box{
-        max-width:100%;
-      }
+<div class="content">
 
-      .popup-contact{
-        gap:8px;
-      }
+<a
+href="https://click-lynk.com/LIVECHAT_CLICKBET88WL"
+target="_blank"
+class="claim-btn">
+KLAIM SEKARANG
+</a>
 
-      .popup-contact a{
-        min-width:112px;
-        font-size:11px;
-        padding:8px 10px;
-      }
-    }
-  `;
-  document.head.appendChild(style);
+</div>
 
-  const popup = document.createElement("div");
-  popup.id = "popup-resmi-wrap";
+<div class="footer">
+CLICKBET88 OFFICIAL
+</div>
 
-  popup.innerHTML = `
-    <div id="popup-resmi-box">
-      <div class="popup-close">×</div>
+</div>
 
-      <a class="popup-img-link" href="${banners[0].link}" target="_blank">
-        <img id="popup-main-img" src="${banners[0].img}" alt="World Cup Event" loading="eager">
-      </a>
+<script>
+function closePopup(){
+document.getElementById('promoPopup').style.display='none';
+}
+</script>
 
-      <div class="popup-nav">
-        <button class="popup-arrow popup-prev" type="button">‹</button>
-
-        <div class="popup-dots">
-          <span class="popup-dot active"></span>
-          <span class="popup-dot"></span>
-          <span class="popup-dot"></span>
-        </div>
-
-        <button class="popup-arrow popup-next" type="button">›</button>
-      </div>
-
-      <div class="popup-contact">
-        <a class="popup-help" href="https://click-lynk.com/LIVECHAT_CLICKBET88WL" target="_blank">HUBUNGI KAMI</a>
-        <a class="popup-report" href="https://pengaduancb88.lovable.app/" target="_blank">FORM PENGADUAN</a>
-      </div>
-    </div>
-  `;
-
-  function runPopup(){
-    document.body.appendChild(popup);
-
-    let index = 0;
-    const img = popup.querySelector("#popup-main-img");
-    const link = popup.querySelector(".popup-img-link");
-    const dots = popup.querySelectorAll(".popup-dot");
-
-    function showBanner(i){
-      index = (i + banners.length) % banners.length;
-      img.src = banners[index].img;
-      link.href = banners[index].link;
-      dots.forEach((dot, n) => dot.classList.toggle("active", n === index));
-    }
-
-    popup.querySelector(".popup-next").onclick = () => showBanner(index + 1);
-    popup.querySelector(".popup-prev").onclick = () => showBanner(index - 1);
-    dots.forEach((dot, i) => dot.onclick = () => showBanner(i));
-    popup.querySelector(".popup-close").onclick = () => popup.remove();
-
-    setInterval(() => {
-      if (document.body.contains(popup)) showBanner(index + 1);
-    }, 5000);
-  }
-
-  if (document.readyState === "complete") {
-    setTimeout(runPopup, 800);
-  } else {
-    window.addEventListener("load", () => setTimeout(runPopup, 800));
-  }
-})();
+</body>
+</html>

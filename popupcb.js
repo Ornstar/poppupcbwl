@@ -1,6 +1,6 @@
 (function () {
 
-  var bannerURL = "http://plcl.me/images/MjhjA.jpeg";
+  var bannerURL = "http://plcl.me/images/4LtaX.png";
   var claimURL = "https://click-lynk.com/LIVECHAT_CLICKBET88WL";
 
   var path = window.location.pathname.toLowerCase();
